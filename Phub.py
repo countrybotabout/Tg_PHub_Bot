@@ -17,9 +17,13 @@ logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 if AUTH_CHANNEL and not await is_subscribed(bot, query):
-        await query.answer(cache_time=0,
-                           switch_pm_text='You have to subscribe channel',
-                           switch_pm_parameter="subscribe")
+        async def (_, message):
+    await message.reply_text(
+        """**Below are My Commands...**
+/help To Show This Message.
+/repo To Get the Repo.
+To Search in PHub just simply Type something"""
+    )
                            
         return
 
