@@ -12,6 +12,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMedi
 from Python_ARQ import ARQ 
 from asyncio import get_running_loop
 from wget import download
+from forcesub import ForceSub
 
 # Config Check-----------------------------------------------------------------
 if os.path.exists("config.py"):
