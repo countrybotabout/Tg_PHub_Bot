@@ -13,6 +13,16 @@ from Python_ARQ import ARQ
 from asyncio import get_running_loop
 from wget import download
 
+logger = logging.getLogger(__name__)
+cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
+
+if AUTH_CHANNEL and not await is_subscribed(bot, query):
+        await query.answer(cache_time=0,
+                           switch_pm_text='You have to subscribe channel',
+                           switch_pm_parameter="subscribe")
+                           
+        return
+
 # Config Check-----------------------------------------------------------------
 if os.path.exists("config.py"):
     from config import *
@@ -270,6 +280,8 @@ async def callback_query_dl(_, query):
     data = db[m.chat.id]
     res = data['result']
     curr_page = int(data['curr_page'])
+    
+    
     thomb = await download_url(data['thumb'])
     durr = await time_to_seconds(data['dur'])
     pos = int(query.data.split()[1])
@@ -293,5 +305,18 @@ async def callback_query_dl(_, query):
 @app.on_callback_query(filters.regex("delete"))
 async def callback_query_delete(_, query):
     await query.message.delete()
+    
+async def is_subscribed(bot, query):
+    try:
+        user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+    except UserNotParticipant:
+        pass
+    except Exception as e:
+        logger.exception(e)
+    else:
+        if not user.status == 'kicked':
+            return True
+
+    return False
     
 app.run()
