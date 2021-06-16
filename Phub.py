@@ -12,6 +12,8 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMedi
 from Python_ARQ import ARQ 
 from asyncio import get_running_loop
 from wget import download
+from pyrogram import Client, filters
+
 
 # Config Check-----------------------------------------------------------------
 if os.path.exists("config.py"):
