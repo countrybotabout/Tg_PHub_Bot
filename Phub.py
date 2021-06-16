@@ -16,14 +16,15 @@ from wget import download
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
-if AUTH_CHANNEL and not await is_subscribed(bot, query):
-    await message.reply_text(
-        """**Below are My Commands...**
-/help To Show This Message.
-/repo To Get the Repo.
-To Search in PHub just simply Type something"""
-    )
-                           
+@Client.on_inline_query(filters.user(AUTH_USERS) if AUTH_USERS else None)
+async def answer(bot, query):
+    """Show search results for given inline query"""
+
+    if AUTH_CHANNEL and not await is_subscribed(bot, query):
+        await query.answer(results=[],
+                           cache_time=0,
+                           switch_pm_text='You have to subscribe channel',
+                           switch_pm_parameter="subscribe")
         return
 
 # Config Check-----------------------------------------------------------------
