@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 if AUTH_CHANNEL and not await is_subscribed(bot, query):
-        async def (_, message):
+    def (_, message):
     await message.reply_text(
         """**Below are My Commands...**
 /help To Show This Message.
