@@ -12,7 +12,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMedi
 from Python_ARQ import ARQ 
 from asyncio import get_running_loop
 from wget import download
-from forcesub import ForceSub
+from configs import Config
+from pyrogram import Client
+from pyrogram.errors import FloodWait, UserNotParticipant
 
 # Config Check-----------------------------------------------------------------
 if os.path.exists("config.py"):
