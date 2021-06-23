@@ -44,13 +44,27 @@ async def time_to_seconds(time):
         int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":")))
     )
 # Start  -----------------------------------------------------------------------
-@app.on_message(
-    filters.command("start") & ~filters.edited
-)
-async def start(_, message):
-    m= await message.reply_text(
-        text = "Hi Iam Tg_PHub_Bot.You can Download Videos from PHub upto 1080p !"
-       )
+@app.on_message(filters.command("start"))
+async def start(client, message):
+    chat_id = message.chat.id
+    user_id = message.from_user["id"]
+    name = message.from_user["first_name"]
+    if message.chat.type == "private":
+        btn = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Source", url="https://github.com/ImJanindu/JESongBot"
+                    ),
+                    InlineKeyboardButton(
+                        text="Dev", url="https://t.me/ImJanindu"
+                    )
+                ]
+            ]
+        )
+    else:
+        btn = None
+    await message.reply(pm_start_text.format(name, user_id), reply_markup=btn)
 
 # Help-------------------------------------------------------------------------
 @app.on_message(
