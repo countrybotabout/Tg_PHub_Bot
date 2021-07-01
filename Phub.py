@@ -60,7 +60,9 @@ async def start(_, message):
 
 Hello I'm TG PornHub BOT.
 
-To Search in TG PornHub BOT just simply Type something"""
+To Search in TG PornHub BOT just simply Type something
+
+Click /help"""
        )
 
 # Help-------------------------------------------------------------------------
@@ -87,9 +89,9 @@ async def repo(_, message):
     m= await message.reply_text(
         text="""[SBS Studio](https://t.me/SBS_Studio)
         
-        Join & Get Updates. 
+Join & Get Updates. 
         
-        Channel-:[SBS Studio](https://t.me/SBS_Studio)""",
+Channel-:[SBS Studio](https://t.me/SBS_Studio)""",
         disable_web_page_preview=True
        )
 
@@ -137,11 +139,11 @@ async def sarch(_,message):
                                          callback_data="delete"),
                 ],
                 [
-                    InlineKeyboardButton("Download",
+                    InlineKeyboardButton("Download ⬇️",
                                          callback_data="dload")
                 ],
                 [
-                    InlineKeyboardButton("Channel",
+                    InlineKeyboardButton("Channel 🗣",
                                          url="https://t.me/SBS_Studio")
                 ]
             ]
@@ -167,9 +169,9 @@ async def callback_query_next(_, query):
     if len(res) <= (cur_page+1):
         cbb = [
                 [
-                    InlineKeyboardButton("Previous",
+                    InlineKeyboardButton("Previous ◀️",
                                          callback_data="previous"),
-                    InlineKeyboardButton("Download",
+                    InlineKeyboardButton("Download ⬇️",
                                          callback_data="dload"),
                 ],
                 [
@@ -177,14 +179,14 @@ async def callback_query_next(_, query):
                                          callback_data="delete"),
                 ],
                 [
-                    InlineKeyboardButton("Channel",
+                    InlineKeyboardButton("Channel 🗣",
                                          url="https://t.me/SBS_Studio")
                 ]
               ]
     else:
         cbb = [
                 [
-                    InlineKeyboardButton("Previous",
+                    InlineKeyboardButton("Previous ◀️",
                                          callback_data="previous"),
                     InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
@@ -192,11 +194,11 @@ async def callback_query_next(_, query):
                 [
                     InlineKeyboardButton("Delete ❌",
                                          callback_data="delete"),
-                    InlineKeyboardButton("Download",
+                    InlineKeyboardButton("Download ⬇️",
                                          callback_data="dload")
                 ],
                 [
-                    InlineKeyboardButton("Channel",
+                    InlineKeyboardButton("Channel 🗣",
                                          url="https://t.me/SBS_Studio")
                 ]
               ]
@@ -230,7 +232,7 @@ async def callback_query_next(_, query):
     if cur_page != 0:
         cbb=[
                 [
-                    InlineKeyboardButton("Previous",
+                    InlineKeyboardButton("Previous ◀️",
                                          callback_data="previous"),
                     InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
@@ -238,11 +240,11 @@ async def callback_query_next(_, query):
                 [
                     InlineKeyboardButton("Delete ❌",
                                          callback_data="delete"),
-                    InlineKeyboardButton("Download",
+                    InlineKeyboardButton("Download ⬇️",
                                          callback_data="dload")
                 ],
                 [
-                    InlineKeyboardButton("Channel",
+                    InlineKeyboardButton("Channel 🗣",
                                          url="https://t.me/SBS_Studio")
                 ]
             ]
@@ -251,15 +253,15 @@ async def callback_query_next(_, query):
                 [
                     InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
-                    InlineKeyboardButton("Delete",
+                    InlineKeyboardButton("Delete ❌",
                                          callback_data="Delete"),
                 ],
                 [
-                    InlineKeyboardButton("Download",
+                    InlineKeyboardButton("Download ⬇️",
                                          callback_data="dload"),
                 ],
                 [
-                    InlineKeyboardButton("Channel",
+                    InlineKeyboardButton("Channel 🗣",
                                          url="https://t.me/SBS_Studio")
                 ]
             ]
