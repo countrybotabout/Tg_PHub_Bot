@@ -56,11 +56,7 @@ async def start(_, message):
 ─▄▄──█░░░▀█▀░░░█──▄▄─
 █░░█─▀▄░░░░░░░▄▀─█░░█
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█  
-█ ＴＧ   ＰｏｒｎＨｕｂ   ＢＯＴ █
-        
-Hello I'm TG PornHub BOT.
-
-To Search in TG PornHub BOT just simply Type something"""
+█ ＴＧ   ＰｏｒｎＨｕｂ   ＢＯＴ █"""
        )
 
 # Help-------------------------------------------------------------------------
