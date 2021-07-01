@@ -56,7 +56,11 @@ async def start(_, message):
 ─▄▄──█░░░▀█▀░░░█──▄▄─
 █░░█─▀▄░░░░░░░▄▀─█░░█
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█  
-█ ＴＧ   ＰｏｒｎＨｕｂ   ＢＯＴ █"""
+█ ＴＧ   ＰｏｒｎＨｕｂ   ＢＯＴ █
+
+Hello I'm TG PornHub BOT.
+
+To Search in TG PornHub BOT just simply Type something"""
        )
 
 # Help-------------------------------------------------------------------------
@@ -67,24 +71,31 @@ async def help(_, message):
     await message.reply_text(
         """**Below are My Commands...**
 /help To Show This Message.
-/repo To Get the Repo.
+/start to Restart Bot 
+/channel To get Channel Link
+
+©️[SBS Studio](https://t.me/SBS_Studio) Channel
 
 To Search in PHub just simply Type something"""
     )
     
 # Repo  -----------------------------------------------------------------------
 @app.on_message(
-    filters.command("repo") & ~filters.edited
+    filters.command("channel") & ~filters.edited
 )
 async def repo(_, message):
     m= await message.reply_text(
-        text="""[Tg_PHub_Bot Repo](https://github.com/Devanagaraj/Tg_PHub_Bot) | [Support Group](https://t.me/PatheticProgrammers)""",
+        text="""[SBS Studio](https://t.me/SBS_Studio)
+        
+        Join & Get Updates. 
+        
+        Channel-:[SBS Studio](https://t.me/SBS_Studio)""",
         disable_web_page_preview=True
        )
 
 # Let's Go----------------------------------------------------------------------
 @app.on_message(
-    filters.private & ~filters.edited & ~filters.command("help") & ~filters.command("start") & ~filters.command("repo")
+    filters.private & ~filters.edited & ~filters.command("help") & ~filters.command("start") & ~filters.command("channel")
     )
 async def sarch(_,message):
     try:
@@ -109,7 +120,10 @@ async def sarch(_,message):
     resolt = f"""
 **Title:** {res[0].title}
 **views:** {res[0].views}
-**rating:** {res[0].rating}"""
+**rating:** {res[0].rating}
+
+©️[SBS Studio](https://t.me/SBS_Studio) Channel
+"""
     await m.delete()
     m = await message.reply_photo(
         photo=res[0].thumbnails[0].src,
@@ -117,14 +131,18 @@ async def sarch(_,message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Next",
+                    InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
-                    InlineKeyboardButton("Delete",
+                    InlineKeyboardButton("Delete ❌",
                                          callback_data="delete"),
                 ],
                 [
                     InlineKeyboardButton("Download",
                                          callback_data="dload")
+                ],
+                [
+                    InlineKeyboardButton("Channel",
+                                         url="https://t.me/SBS_Studio")
                 ]
             ]
         ),
@@ -155,29 +173,38 @@ async def callback_query_next(_, query):
                                          callback_data="dload"),
                 ],
                 [
-                    InlineKeyboardButton("Delete",
+                    InlineKeyboardButton("Delete ❌",
                                          callback_data="delete"),
-                ]
+                ],
+                [
+                    InlineKeyboardButton("Channel",
+                                         url="https://t.me/SBS_Studio")
+                [
               ]
     else:
         cbb = [
                 [
                     InlineKeyboardButton("Previous",
                                          callback_data="previous"),
-                    InlineKeyboardButton("Next",
+                    InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
                 ],
                 [
-                    InlineKeyboardButton("Delete",
+                    InlineKeyboardButton("Delete ❌",
                                          callback_data="delete"),
                     InlineKeyboardButton("Download",
                                          callback_data="dload")
-                ]
+                ],
+                [
+                    InlineKeyboardButton("Channel",
+                                         url="https://t.me/SBS_Studio")
               ]
     resolt = f"""
 **Title:** {res[cur_page].title}
 **views:** {res[cur_page].views}
-**rating:** {res[cur_page].rating}"""
+**rating:** {res[cur_page].rating}
+
+©️[SBS Studio](https://t.me/SBS_Studio) Channel"""
 
     await m.edit_media(media=InputMediaPhoto(res[cur_page].thumbnails[0].src))
     await m.edit(
@@ -204,33 +231,44 @@ async def callback_query_next(_, query):
                 [
                     InlineKeyboardButton("Previous",
                                          callback_data="previous"),
-                    InlineKeyboardButton("Next",
+                    InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
                 ],
                 [
-                    InlineKeyboardButton("Delete",
+                    InlineKeyboardButton("Delete ❌",
                                          callback_data="delete"),
                     InlineKeyboardButton("Download",
                                          callback_data="dload")
+                ]
+                ],
+                [
+                    InlineKeyboardButton("Channel",
+                                         url="https://t.me/SBS_Studio")
                 ]
             ]
     else:
         cbb=[
                 [
-                    InlineKeyboardButton("Next",
+                    InlineKeyboardButton("Next ▶️",
                                          callback_data="next"),
                     InlineKeyboardButton("Delete",
                                          callback_data="Delete"),
                 ],
                 [
                     InlineKeyboardButton("Download",
-                                         callback_data="dload")
+                                         callback_data="dload"),
+                ],
+                [
+                    InlineKeyboardButton("Channel",
+                                         url="https://t.me/SBS_Studio")
                 ]
             ]
     resolt = f"""
 **Title:** {res[cur_page].title}
 **views:** {res[cur_page].views}
-**rating:** {res[cur_page].rating}"""
+**rating:** {res[cur_page].rating}
+
+©️[SBS Studio](https://t.me/SBS_Studio) Channel"""
 
     await m.edit_media(media=InputMediaPhoto(res[cur_page].thumbnails[0].src))
     await m.edit(
@@ -260,7 +298,7 @@ async def callback_query_next(_, query):
         b= [InlineKeyboardButton(f"{resolts.quality} - {resolts.size}", callback_data=f"phubdl {pos}")]
         pos += 1
         cbb.append(b)
-    cbb.append([InlineKeyboardButton("Delete", callback_data="delete")])
+    cbb.append([InlineKeyboardButton("Delete ❌", callback_data="delete")])
     await m.edit(
         resolt,
         reply_markup=InlineKeyboardMarkup(cbb),
