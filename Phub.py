@@ -240,7 +240,6 @@ async def callback_query_next(_, query):
                                          callback_data="delete"),
                     InlineKeyboardButton("Download",
                                          callback_data="dload")
-                ]
                 ],
                 [
                     InlineKeyboardButton("Channel",
