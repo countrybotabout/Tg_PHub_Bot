@@ -179,7 +179,7 @@ async def callback_query_next(_, query):
                 [
                     InlineKeyboardButton("Channel",
                                          url="https://t.me/SBS_Studio")
-                [
+                ]
               ]
     else:
         cbb = [
@@ -198,6 +198,7 @@ async def callback_query_next(_, query):
                 [
                     InlineKeyboardButton("Channel",
                                          url="https://t.me/SBS_Studio")
+                ]
               ]
     resolt = f"""
 **Title:** {res[cur_page].title}
