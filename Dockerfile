@@ -8,4 +8,4 @@ RUN git clone https://github.com/countrybotabout/Tg_PHub_Bot
 RUN cd Tg_PHub_Bot
 WORKDIR /Tg_PHub_Bot
 RUN pip3 install -U -r requirements.txt
-CMD python3 phub.py
+CMD python3 Phub.py
