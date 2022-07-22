@@ -1,0 +1,9 @@
+services:
+  drone-vc-p:
+    build: .
+    environment:
+      ARQ_API_KEY: $ARQ_API_KEY  
+      Bot_token: $Bot_token 
+    resources:
+      cpu: 1000m
+      memory: 3Gi
